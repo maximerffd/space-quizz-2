@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/game2"
+    android:padding="5dp"
+    tools:context="com.example.spacequizz.Controllers.GameActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+
+        <ImageView
+
+            android:id="@+id/life"
+            android:layout_width="35dp"
+            android:layout_height="48dp"
+            android:src="@drawable/lifep"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            />
+
+
+        <ImageView
+
+            android:id="@+id/life2"
+            android:layout_width="35dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="false"
+            android:layout_marginEnd="81dp"
+            android:layout_marginRight="81dp"
+            android:gravity="right"
+            android:src="@drawable/lifep" />
+
+        <ImageView
+
+            android:id="@+id/life3"
+            android:layout_width="35dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="false"
+            android:layout_marginEnd="40dp"
+            android:src="@drawable/lifep"
+            android:layout_marginRight="40dp" />
+
+        <TextView
+            android:id="@+id/activity_game_info_player"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/username"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:id="@+id/activity_game_info_score"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/playerScore"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/activity_game_question_text"
+        android:layout_width="match_parent"
+        android:layout_height="514dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:text="@string/questionText"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="98dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/activity_game_answer1_btn"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="150dp"
+            android:layout_height="95dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:text="@string/answerA"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:cornerRadius="30dp"
+            app:strokeColor="#29B0E6" />
+
+        <Button
+            android:id="@+id/activity_game_answer2_btn"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="150dp"
+            android:layout_height="95dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:text="@string/answerB"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:cornerRadius="30dp"
+            app:strokeColor="#29B0E6" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="98dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="120dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/activity_game_answer3_btn"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="150dp"
+            android:layout_height="95dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:text="@string/answerC"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:cornerRadius="30dp"
+            app:strokeColor="#29B0E6" />
+
+        <Button
+            android:id="@+id/activity_game_answer4_btn"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="150dp"
+            android:layout_height="95dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:text="@string/answerD"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:cornerRadius="30dp"
+            app:strokeColor="#29B0E6" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/activity_game_Next"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/NextText"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:cornerRadius="15dp"
+        app:strokeColor="#29B0E6" />
+
+
+    />
+
+
+</LinearLayout>
+

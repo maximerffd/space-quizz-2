@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">SpaceQuizz</string>
+    <string name="app_title">SPACE QUIZZ</string>
+    <string name="loginButton">Se connecter</string>
+    <string name="registerButton">S\'enregistrer</string>
+    <string name="questionText"> Ma question </string>
+    <string name="answerA">Bonne réponse</string>
+    <string name="answerB">Mauvaise réponse</string>
+    <string name="answerC">Mauvaise réponse</string>
+    <string name="answerD">Mauvaise réponse</string>
+    <string name="NextText">NEXT</string>
+    <string name="usernameInput">Votre pseudo</string>
+    <string name="usernameInputR">Choisissez un pseudo</string>
+    <string name="username">Username</string>
+    <string name="playerScore">Score: 0</string>
+    <string name="playButton">Jouez !</string>
+    <string name="passwordInputR">Choisissez un mot de passe</string>
+    <string name="passwordInput">Votre mot de passe</string>
+    <string name="quitButton">REJOUER </string>
+    <string name="logoScore">TODO</string>
+    <string name="scoreText">SCORE : XXXX</string>
+    <string name="ProfilBack">RETOUR</string>
+    <string name="logoProfil">LogoProfil</string>
+    <string name="usernameModify">Votre Pseudo</string>
+    <string name="modifyPassword">Modifier votre mot de passe </string>
+    <string name="profilactivitymain">profil</string>
+    <string name="logoPpr">logohighscoreprofil</string>
+
+
+</resources>

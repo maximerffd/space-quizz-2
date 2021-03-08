@@ -10,34 +10,92 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import fr.mhyran.spacequizz2.Models.User;
+import androidx.room.Room;
+import fr.mhyran.spacequizz2.Config.Constant;
+import fr.mhyran.spacequizz2.Database.AppDatabase;
+import fr.mhyran.spacequizz2.Entity.User;
+import fr.mhyran.spacequizz2.Interfaces.UserDao;
 import fr.mhyran.spacequizz2.R;
-import fr.mhyran.spacequizz2.utilities.DatabaseHelper;
 
-import java.util.ArrayList;
-import java.util.List;
+
+
 
 public class  RegisterActivity extends AppCompatActivity {
-    List<User> listUsers;
-    DatabaseHelper databaseHelper = new DatabaseHelper(this);
-    boolean usernameIsFilled = false;
-    boolean passwordIsFilled = false;
+
+   //boolean usernameIsFilled = false;
+   // boolean passwordIsFilled = false;
+
+    AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        User user = new User();
-        listUsers = new ArrayList<>();
-
 
         EditText username = (EditText) findViewById(R.id.editTextTextPersonName);
         EditText password = (EditText) findViewById(R.id.editTextTextPassword);
         Button registerButton = (Button) findViewById(R.id.registerButton);
-        registerButton.setEnabled(false);
 
+
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, Constant.BD_NAME)
+                .allowMainThreadQueries()
+                .build();
+
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                User obj = new User();
+                obj.setPseudo(username.getText().toString());
+                obj.setPassword(password.getText().toString());
+             if (validateInput(obj)) {
+                 AppDatabase sInstance = AppDatabase.getAppDatabase(getApplicationContext());
+                 UserDao userDao = sInstance.userDao();
+                 new Thread(new Runnable() {
+                     @Override
+                     public void run() {
+                         userDao.registerUser(obj);
+                         runOnUiThread(new Runnable() {
+                             @Override
+                             public void run() {
+                                 Toast.makeText(RegisterActivity.this, "User Registered", Toast.LENGTH_SHORT).show();
+                                 Intent mainActivity = new Intent(RegisterActivity.this, MainActivity.class);
+                                 startActivity(mainActivity);
+                             }
+                         });
+                     }
+                 }).start();
+             }else{
+                 Toast.makeText(RegisterActivity.this, "Fill all fields", Toast.LENGTH_SHORT).show();
+             }
+            }
+        });
+    }
+    private Boolean validateInput(User obj) {
+        if (obj.getPseudo().isEmpty() ||
+        obj.getPassword().isEmpty()){
+            return false;
+        }
+        return true;
+    }
+}
+
+                //insertar en la base de datos por DAO
+
+               /* long result = db.userDao().insert(obj);
+                if (result>0){
+                    //correcto
+                    Intent mainActivity = new Intent(RegisterActivity.this, MainActivity.class);
+                    startActivity(mainActivity);
+                }else{
+                    Toast.makeText(RegisterActivity.this, "ERROR!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+        });
         username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -51,12 +109,9 @@ public class  RegisterActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 if(s.toString().equals("")){
@@ -83,16 +138,11 @@ public class  RegisterActivity extends AppCompatActivity {
                     if( usernameIsFilled == true && passwordIsFilled == true) {
                         registerButton.setEnabled(true);
                     }
-
                 }
-
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 if(s.toString().equals("")){
@@ -106,38 +156,9 @@ public class  RegisterActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
-        registerButton.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View v) {
-                user.setName(username.getText().toString().trim());
-                user.setPassword(password.getText().toString().trim());
-                databaseHelper.addUser(user);
-                getDataFromSQLite();
-                System.out.println("ID : " + user.getId());
-                System.out.println("Pseudo : " + user.getName());
-                System.out.println("Password : " + user.getPassword());
-                Toast.makeText(RegisterActivity.this, "Inscription réussie", Toast.LENGTH_SHORT).show();
-
-
-                Intent loginActivity = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(loginActivity);
-            }
-        });
-
-
     }
+}*/
 
-    private void getDataFromSQLite() {
-        listUsers.addAll(databaseHelper.getAllUser());
-        System.out.println("List User : " + listUsers);
-        for(int i = 0; i < listUsers.size(); i++){
-            System.out.println( "User id in list " + listUsers.get(i).getId() +  listUsers.get(i).getName());
-        }
-    }
-}
+
+
+

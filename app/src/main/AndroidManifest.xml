@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/spaceicon"
+        android:icon="@mipmap/logosqroom"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/spaceicon_round"
+        android:roundIcon="@mipmap/logosqroom_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SpaceQuizz2">
 

@@ -1,4 +1,4 @@
-package fr.mhyran.spacequizz2.Models;
+/*package fr.mhyran.spacequizz2.Models;
 
 public class User {
     private int id;
@@ -39,3 +39,4 @@ public class User {
         this.score = score;
     }
 }
+*/

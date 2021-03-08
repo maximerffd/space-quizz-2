@@ -52,11 +52,10 @@ public class GameActivity extends AppCompatActivity {
         tvScore=findViewById(R.id.activity_game_info_score);
 
 
-        Intent accountsIntent = getIntent();
-        String userName = accountsIntent.getStringExtra("Username");
-        tvUserName=findViewById(R.id.activity_game_info_player);
-        tvUserName.setText(String.valueOf(userName));
 
+        tvUserName=findViewById(R.id.activity_game_info_player);
+        String pseusotv = getIntent().getStringExtra("pseudotv");
+        tvUserName.setText(pseusotv);
 
 
 

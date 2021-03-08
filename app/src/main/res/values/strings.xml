@@ -16,7 +16,8 @@
     <string name="playButton">Jouez !</string>
     <string name="passwordInputR">Choisissez un mot de passe</string>
     <string name="passwordInput">Votre mot de passe</string>
-    <string name="quitButton">REJOUER </string>
+    <string name="exitbtn"> QUITTER </string>
+    <string name="restartbtn"> REJOUER </string>
     <string name="logoScore">TODO</string>
     <string name="scoreText">SCORE : XXXX</string>
     <string name="ProfilBack">RETOUR</string>

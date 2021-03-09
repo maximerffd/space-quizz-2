@@ -31,8 +31,12 @@ public class GameActivity extends AppCompatActivity {
     boolean checkAns4 = false;
     ColorStateList dfbtnColor;
 
+    String gapseudotv;
+    Long gaidtv;
+
     private Question currentQuestion;
     private List<Question> questionsList;
+
 
 
     @Override
@@ -45,12 +49,11 @@ public class GameActivity extends AppCompatActivity {
         tvQuestion=findViewById(R.id.activity_game_question_text);
         tvScore=findViewById(R.id.activity_game_info_score);
 
-
+       gapseudotv = getIntent().getStringExtra("pseudotv");
+       gaidtv = getIntent().getLongExtra("idtv", 0);
 
         tvUserName=findViewById(R.id.activity_game_info_player);
-        String pseudotv = getIntent().getStringExtra("pseudotv");
-        Long idtv = getIntent().getLongExtra("idtv", 0);
-        tvUserName.setText(idtv + " " + pseudotv);
+        tvUserName.setText(gaidtv + " " + gapseudotv);
 
 
 
@@ -150,12 +153,15 @@ public class GameActivity extends AppCompatActivity {
 
                 if(lifePoints==0){
 
+                    gapseudotv = getIntent().getStringExtra("pseudotv");
+                    gaidtv = getIntent().getLongExtra("idtv", 0);
+
+
                     Intent myIntent = new Intent(GameActivity.this, HighscoreActivity.class);
                     myIntent.putExtra("scoreHS", score);
+                    myIntent.putExtra("pseudo", gapseudotv);
+                    myIntent.putExtra("id", gaidtv);
                     startActivity(myIntent);
-
-
-
 
                 }
             }
@@ -201,9 +207,12 @@ public class GameActivity extends AppCompatActivity {
 
 
         }else{
-
+            gapseudotv = getIntent().getStringExtra("pseudotv");
+            gaidtv = getIntent().getLongExtra("idtv", 0);
             Intent myIntent = new Intent(GameActivity.this, HighscoreActivity.class);
             myIntent.putExtra("scoreHS", score);
+            myIntent.putExtra("pseudo", gapseudotv);
+            myIntent.putExtra("id", gaidtv);
             startActivity(myIntent);
         }
 

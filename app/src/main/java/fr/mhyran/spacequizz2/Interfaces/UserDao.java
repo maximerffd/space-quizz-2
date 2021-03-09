@@ -14,12 +14,14 @@ public interface UserDao{
  @Query("SELECT COUNT(*) FROM " + User.TABLE_NAME)
  int count();
 
+ @Query("SELECT score from User where pseudo=(:pseudo)")
+ int scoredb(String pseudo);
+
  @Query("SELECT * FROM " + User.TABLE_NAME)
  List<User>getAllUsers();
 
- //@Query("UPDATE user SET score = :score WHERE User._id = :id")
- //int updateScore(long id, int score);
-
+ @Query("UPDATE User SET score = :score WHERE pseudo=(:pseudo)")
+ void updateScore(String pseudo, int score);
 
  @Insert
  void instarAll(User ... users);

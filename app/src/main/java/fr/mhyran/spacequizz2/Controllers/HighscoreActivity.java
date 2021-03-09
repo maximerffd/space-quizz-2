@@ -15,6 +15,7 @@ import java.util.List;
 import fr.mhyran.spacequizz2.Config.Constant;
 import fr.mhyran.spacequizz2.Database.AppDatabase;
 import fr.mhyran.spacequizz2.Entity.User;
+import fr.mhyran.spacequizz2.Interfaces.UserDao;
 import fr.mhyran.spacequizz2.R;
 
 
@@ -26,30 +27,47 @@ public class HighscoreActivity extends AppCompatActivity {
 
     private TextView tvScoreHS;
 
+    String hspseudotv;
+    Long hsidtv;
+    int scorebd;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_highscore);
 
-        Intent mIntent = getIntent();
-        int score = mIntent.getIntExtra("scoreHS", 0);
 
+        Intent myIntent = getIntent();
+        int score = myIntent.getIntExtra("scoreHS", 0);
+        hspseudotv = myIntent.getStringExtra("pseudo");
+        hsidtv = getIntent().getLongExtra("id", 0);
         tvScoreHS = findViewById(R.id.textView2);
 
-        tvScoreHS.setText("Score: "+String.valueOf(score));
+        tvScoreHS.setText(hspseudotv+" Score: "+String.valueOf(score));
+
 
 
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, Constant.BD_NAME)
                 .allowMainThreadQueries()
                 .build();
+
+
+       int scorebd = db.userDao().scoredb(hspseudotv);
+       System.out.println("scorebd "+scorebd);
+
+        if (scorebd<=score) {
+            db.userDao().updateScore(hspseudotv, score);
+        }
+
         //obtengo datos de mi table
         listUsers = db.userDao().getAllUsers();
-        //int newScore = db.userDao().updateScore(User.COLUMN_ID, score);
-
         lvUser = (ListView) findViewById(R.id.lvUser);
 
         AdapterUser adapterUser = new AdapterUser(this);
         lvUser.setAdapter(adapterUser);
+
 
 
         Button menuButton = (Button) findViewById(R.id.menubtn);
@@ -85,7 +103,7 @@ public class HighscoreActivity extends AppCompatActivity {
             View item = inflater.inflate(R.layout.item_userscore, null);
 
             TextView txtname = (TextView)item.findViewById(R.id.txtItemName);
-            String dato = listUsers.get(position).getId() + " - " + listUsers.get(position).getPseudo() + " - " + listUsers.get(position).getScore();
+            String dato = listUsers.get(position).getId() + " - " + listUsers.get(position).getPseudo() + " : " + listUsers.get(position).getScore();
             txtname.setText(dato);
 
             return item;

@@ -31,8 +31,10 @@ public class User {
     @ColumnInfo(name = "password")
     private String password;
 
+
     @ColumnInfo(name = "score")
-    private Integer score;
+    private Integer score =0;
+
 
 
     public long getId() {
@@ -47,7 +49,7 @@ public class User {
         return pseudo;
     }
 
-    public void setPseudo(String pseudo) {
+    public void setPseudo( String pseudo) {
         this.pseudo = pseudo;
     }
 
@@ -63,12 +65,12 @@ public class User {
         return score;
     }
 
-    public void setScore(Integer score) {
+    public void setScore(@NonNull Integer score) {
         this.score = score;
     }
 
-
     @Ignore
+
     public User() {
     }
 

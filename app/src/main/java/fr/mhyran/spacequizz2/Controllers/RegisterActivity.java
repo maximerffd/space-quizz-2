@@ -22,8 +22,6 @@ import fr.mhyran.spacequizz2.R;
 
 public class  RegisterActivity extends AppCompatActivity {
 
-   //boolean usernameIsFilled = false;
-   // boolean passwordIsFilled = false;
 
     AppDatabase db;
 

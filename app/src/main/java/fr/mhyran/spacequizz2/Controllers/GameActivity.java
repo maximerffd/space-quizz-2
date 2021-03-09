@@ -8,12 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import fr.mhyran.spacequizz2.Models.Question;
 import fr.mhyran.spacequizz2.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,12 +29,9 @@ public class GameActivity extends AppCompatActivity {
     boolean checkAns2 = false;
     boolean checkAns3 = false;
     boolean checkAns4 = false;
-
     ColorStateList dfbtnColor;
 
-
     private Question currentQuestion;
-
     private List<Question> questionsList;
 
 
@@ -54,8 +48,9 @@ public class GameActivity extends AppCompatActivity {
 
 
         tvUserName=findViewById(R.id.activity_game_info_player);
-        String pseusotv = getIntent().getStringExtra("pseudotv");
-        tvUserName.setText(pseusotv);
+        String pseudotv = getIntent().getStringExtra("pseudotv");
+        Long idtv = getIntent().getLongExtra("idtv", 0);
+        tvUserName.setText(idtv + " " + pseudotv);
 
 
 

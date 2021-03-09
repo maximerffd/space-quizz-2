@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:background="@drawable/game2"
     android:padding="5dp"
-    tools:context="com.example.spacequizz.Controllers.GameActivity">
+    tools:context=".Controllers.GameActivity">
 
 
     <RelativeLayout

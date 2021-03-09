@@ -17,6 +17,10 @@ public interface UserDao{
  @Query("SELECT * FROM " + User.TABLE_NAME)
  List<User>getAllUsers();
 
+ //@Query("UPDATE user SET score = :score WHERE User._id = :id")
+ //int updateScore(long id, int score);
+
+
  @Insert
  void instarAll(User ... users);
 

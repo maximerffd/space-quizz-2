@@ -44,6 +44,7 @@ public class HighscoreActivity extends AppCompatActivity {
                 .build();
         //obtengo datos de mi table
         listUsers = db.userDao().getAllUsers();
+        //int newScore = db.userDao().updateScore(User.COLUMN_ID, score);
 
         lvUser = (ListView) findViewById(R.id.lvUser);
 
@@ -51,22 +52,22 @@ public class HighscoreActivity extends AppCompatActivity {
         lvUser.setAdapter(adapterUser);
 
 
-        Button exitButton = (Button) findViewById(R.id.exitbtn);
+        Button menuButton = (Button) findViewById(R.id.menubtn);
         Button restartButton = (Button) findViewById(R.id.restartbtn);
 
-        exitButton.setOnClickListener(new View.OnClickListener() {
+        menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent exitActivity = new Intent(HighscoreActivity.this, MainActivity.class);
-                startActivity(exitActivity);
+                Intent menuIntent = new Intent(HighscoreActivity.this, MainActivity.class);
+                startActivity(menuIntent);
             }
         });
 
         restartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent restartActivity = new Intent(HighscoreActivity.this, GameActivity.class);
-                startActivity(restartActivity);
+                finish();
+                System.exit(0);;
             }
         });
 

@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button registerButton = (Button) findViewById(R.id.registerButton);
         Button playButton = (Button) findViewById(R.id.playButton);
+        ImageButton exit = (ImageButton) findViewById(R.id.exit);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +48,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent exit = new Intent(Intent.ACTION_MAIN);
+                exit.addCategory(Intent.CATEGORY_HOME);
+                exit.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(exit);
+            }
+        });
 
     }
 }

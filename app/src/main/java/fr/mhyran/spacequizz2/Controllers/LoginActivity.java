@@ -57,8 +57,10 @@ AppDatabase db;
                                 });
                             } else{
                                 String pseudo = obj.getPseudo();
+                                Long id = obj.getId();
                                 startActivity(new Intent (LoginActivity.this, GameActivity.class)
-                                        .putExtra("pseudotv", pseudo));
+                                        .putExtra("pseudotv", pseudo)
+                                        .putExtra("idtv", id));
                             }
 
                             }

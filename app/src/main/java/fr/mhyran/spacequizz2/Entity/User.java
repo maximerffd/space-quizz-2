@@ -2,12 +2,13 @@ package fr.mhyran.spacequizz2.Entity;
 import android.content.ContentValues;
 import android.provider.BaseColumns;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = User.TABLE_NAME)
+@Entity(tableName = User.TABLE_NAME /*, primaryKeys ={"_id", "pseudo"}*/)
 public class User {
 
     /** The name of the Cheese table. */

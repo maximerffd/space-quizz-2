@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, Constant.BD_NAME)
                 .allowMainThreadQueries()
                 .build();
-        int quantity = db.userDao().count();
+        //int quantity = db.userDao().count();
         //Toast.makeText(this, "Enregistrements: " + quantity, Toast.LENGTH_SHORT).show();
 
 

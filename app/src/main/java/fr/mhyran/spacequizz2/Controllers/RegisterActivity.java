@@ -74,91 +74,10 @@ public class  RegisterActivity extends AppCompatActivity {
         });
     }
     private Boolean validateInput(User obj) {
-        if (obj.getPseudo().isEmpty() ||
-        obj.getPassword().isEmpty()){
-            return false;
-        }
-        return true;
+        return !obj.getPseudo().isEmpty() &&
+                !obj.getPassword().isEmpty();
     }
 }
-
-                //insertar en la base de datos por DAO
-
-               /* long result = db.userDao().insert(obj);
-                if (result>0){
-                    //correcto
-                    Intent mainActivity = new Intent(RegisterActivity.this, MainActivity.class);
-                    startActivity(mainActivity);
-                }else{
-                    Toast.makeText(RegisterActivity.this, "ERROR!", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-        });
-        username.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                if(s.toString().equals("")){
-                    registerButton.setEnabled(false);
-                    usernameIsFilled = false;
-                }else {
-                    usernameIsFilled = true;
-                    if( usernameIsFilled == true && passwordIsFilled == true) {
-                        registerButton.setEnabled(true);
-                    }
-                }
-            }
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(s.toString().equals("")){
-                    registerButton.setEnabled(false);
-                    usernameIsFilled = false;
-                }else {
-                    usernameIsFilled = true;
-                    if( usernameIsFilled == true && passwordIsFilled == true) {
-                        registerButton.setEnabled(true);
-                    }
-                }
-
-            }
-        });
-
-        password.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                if(s.toString().equals("")){
-                    registerButton.setEnabled(false);
-                    passwordIsFilled = false;
-                }else {
-                    passwordIsFilled = true;
-                    if( usernameIsFilled == true && passwordIsFilled == true) {
-                        registerButton.setEnabled(true);
-                    }
-                }
-            }
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(s.toString().equals("")){
-                    registerButton.setEnabled(false);
-                    passwordIsFilled = false;
-                }else {
-                    passwordIsFilled = true;
-                    if( usernameIsFilled == true && passwordIsFilled == true) {
-                        registerButton.setEnabled(true);
-                    }
-                }
-            }
-        });
-    }
-}*/
-
 
 
 

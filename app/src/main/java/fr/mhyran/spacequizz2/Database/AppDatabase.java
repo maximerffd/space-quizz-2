@@ -1,15 +1,9 @@
 package fr.mhyran.spacequizz2.Database;
 
-import android.app.Person;
-//import android.arch.persistence.room.Room;
 import android.content.Context;
-//import android.support.annotation.VisibleForTesting;
-
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-
-
 import fr.mhyran.spacequizz2.Config.Constant;
 import fr.mhyran.spacequizz2.Entity.User;
 import fr.mhyran.spacequizz2.Interfaces.UserDao;

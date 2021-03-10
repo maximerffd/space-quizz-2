@@ -1,14 +1,13 @@
 package fr.mhyran.spacequizz2.Entity;
 import android.content.ContentValues;
 import android.provider.BaseColumns;
-
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = User.TABLE_NAME /*, primaryKeys ={"_id", "pseudo"}*/)
+@Entity(tableName = User.TABLE_NAME)
 public class User {
 
     /** The name of the Cheese table. */
@@ -33,7 +32,7 @@ public class User {
 
 
     @ColumnInfo(name = "score")
-    private Integer score =0;
+    private Integer score =-100;
 
 
 

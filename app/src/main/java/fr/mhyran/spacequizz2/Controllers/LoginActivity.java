@@ -72,20 +72,6 @@ AppDatabase db;
             }
         });
     }
-
 }
 
-  /*if (databaseHelper.checkUser(username.getText().toString().trim()
-                        , password.getText().toString().trim())) {
-                    Intent accountsIntent = new Intent(LoginActivity.this, GameActivity.class);
-                    accountsIntent.putExtra("Username", username.getText().toString().trim());
-                    startActivity(accountsIntent);
-                    username.setText(null);
-                    password.setText(null);
-
-             } else {
-                    // Snack Bar to show success message that record is wrong
-                    Toast.makeText(LoginActivity.this, "Mot de passe incorrect", Toast.LENGTH_SHORT).show();
-                }
-             */
 

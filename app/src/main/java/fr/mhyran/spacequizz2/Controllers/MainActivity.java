@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         int quantity = db.userDao().count();
         Toast.makeText(this, "Enregistrements: " + quantity, Toast.LENGTH_SHORT).show();
 
+
+        int delete = db.userDao().deleteById(1);
         Button registerButton = (Button) findViewById(R.id.registerButton);
         Button playButton = (Button) findViewById(R.id.playButton);
         ImageButton exit = (ImageButton) findViewById(R.id.exit);

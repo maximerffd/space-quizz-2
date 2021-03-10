@@ -17,7 +17,7 @@ public interface UserDao{
  @Query("SELECT score from User where pseudo=(:pseudo)")
  int scoredb(String pseudo);
 
- @Query("SELECT * FROM " + User.TABLE_NAME)
+ @Query("SELECT * from User ORDER BY score DESC LIMIT 9")
  List<User>getAllUsers();
 
  @Query("UPDATE User SET score = :score WHERE pseudo=(:pseudo)")

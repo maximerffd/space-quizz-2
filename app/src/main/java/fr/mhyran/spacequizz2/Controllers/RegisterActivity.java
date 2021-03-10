@@ -53,8 +53,8 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 User obj = new User();
-                obj.setPseudo(username.getText().toString());
-                obj.setPassword(password.getText().toString());
+                obj.setPseudo(username.getText().toString().trim().toLowerCase());
+                obj.setPassword(password.getText().toString().trim());
                 if (validateInput(obj)) {
                     AppDatabase sInstance = AppDatabase.getAppDatabase(getApplicationContext());
                     UserDao userDao = sInstance.userDao();

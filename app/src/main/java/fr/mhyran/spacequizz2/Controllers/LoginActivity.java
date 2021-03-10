@@ -39,8 +39,8 @@ AppDatabase db;
             @Override
             public void onClick(View v) {
 
-                String pseudoText= username.getText().toString();
-                String passwordText= password.getText().toString();
+                String pseudoText= username.getText().toString().trim().toLowerCase();
+                String passwordText= password.getText().toString().trim();
                 if(pseudoText.isEmpty() || passwordText.isEmpty()){
                     Toast.makeText(LoginActivity.this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
                 }else {

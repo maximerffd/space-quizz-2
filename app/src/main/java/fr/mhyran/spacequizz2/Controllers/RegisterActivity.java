@@ -56,19 +56,23 @@ public class  RegisterActivity extends AppCompatActivity {
                  new Thread(new Runnable() {
                      @Override
                      public void run() {
-                         userDao.registerUser(obj);
-                         runOnUiThread(new Runnable() {
-                             @Override
-                             public void run() {
-                                 Toast.makeText(RegisterActivity.this, "User Registered", Toast.LENGTH_SHORT).show();
-                                 Intent mainActivity = new Intent(RegisterActivity.this, MainActivity.class);
-                                 startActivity(mainActivity);
-                             }
-                         });
+                    //     if(obj.getPseudo().equals(userDao.getAllUsersReg())) {
+                      //       Toast.makeText(RegisterActivity.this, "Pseudo déjà utilisé", Toast.LENGTH_SHORT).show();
+                         }else {
+                             userDao.registerUser(obj);
+                             runOnUiThread(new Runnable() {
+                                 @Override
+                                 public void run() {
+                                     Toast.makeText(RegisterActivity.this, "Utilisateur enregistré", Toast.LENGTH_SHORT).show();
+                                     Intent mainActivity = new Intent(RegisterActivity.this, MainActivity.class);
+                                     startActivity(mainActivity);
+                                 }
+                             });
+                         }
                      }
                  }).start();
              }else{
-                 Toast.makeText(RegisterActivity.this, "Fill all fields", Toast.LENGTH_SHORT).show();
+                 Toast.makeText(RegisterActivity.this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
              }
             }
         });

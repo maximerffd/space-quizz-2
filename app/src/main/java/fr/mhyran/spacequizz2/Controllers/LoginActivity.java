@@ -42,7 +42,7 @@ AppDatabase db;
                 String pseudoText= username.getText().toString();
                 String passwordText= password.getText().toString();
                 if(pseudoText.isEmpty() || passwordText.isEmpty()){
-                    Toast.makeText(LoginActivity.this, "Fill all Fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
                 }else {
                     AppDatabase sInstance = AppDatabase.getAppDatabase(getApplicationContext());
                     UserDao userDao = sInstance.userDao();
@@ -50,14 +50,16 @@ AppDatabase db;
                         @Override
                         public void run() {
                             User obj = userDao.login(pseudoText, passwordText);
+                            System.out.println("obj.getPseudo " + obj.getPseudo());
+
                             if(obj == null){
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(LoginActivity.this, "Identifiants invalides", Toast.LENGTH_SHORT).show();
                                     }
                                 });
-                            } else{
+                            } else {
                                 String pseudo = obj.getPseudo();
                                 Long id = obj.getId();
                                 startActivity(new Intent (LoginActivity.this, GameActivity.class)

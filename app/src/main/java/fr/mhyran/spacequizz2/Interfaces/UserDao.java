@@ -20,6 +20,10 @@ public interface UserDao{
  @Query("SELECT * from User ORDER BY score DESC LIMIT 9")
  List<User>getAllUsers();
 
+ @Query("SELECT pseudo from User")
+ List<User>getAllUsersReg();
+
+
  @Query("UPDATE User SET score = :score WHERE pseudo=(:pseudo)")
  void updateScore(String pseudo, int score);
 
@@ -31,6 +35,8 @@ public interface UserDao{
 
  @Query("SELECT * from User where pseudo=(:pseudo) and password=(:password)")
 User login(String pseudo, String password);
+
+
 
  @Query("DELETE FROM " + User.TABLE_NAME + " WHERE " + User.COLUMN_ID + " = :id")
  int deleteById(long id);

@@ -23,7 +23,7 @@
             android:id="@+id/exit"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/btnexit"
+            android:src="@drawable/exitbtn"
             android:background="@null"
             android:layout_alignParentEnd="true"
             app:layout_constraintEnd_toEndOf="parent"

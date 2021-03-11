@@ -32,6 +32,10 @@ public class HighscoreActivity extends AppCompatActivity {
     Long hsidtv;
     int scorebd;
 
+    @Override
+    public void onBackPressed() {
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

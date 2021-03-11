@@ -38,6 +38,9 @@ public class GameActivity extends AppCompatActivity {
     private Question currentQuestion;
     private List<Question> questionsList;
 
+    @Override
+    public void onBackPressed() {
+    }
 
 
     @Override
